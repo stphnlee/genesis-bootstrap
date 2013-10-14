@@ -13,6 +13,12 @@ function genesis_bootstrap_google_fonts() {
 	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
 }
 
+add_action( 'wp_enqueue_scripts', 'genesis_bootstrap_style' );
+function genesis_bootstrap_style() {
+	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
+	wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap-responsive.min.css' );
+}
+
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
 
