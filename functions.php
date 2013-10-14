@@ -31,6 +31,11 @@ add_theme_support( 'custom-background' );
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
+/** Bootstrap Customizations */
 /** Move primary nav menu */
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_before_header', 'genesis_do_nav' );
+
+/** Remove Title & Description 
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );*/
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
