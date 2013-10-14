@@ -15,8 +15,8 @@ function genesis_bootstrap_google_fonts() {
 
 add_action( 'wp_enqueue_scripts', 'genesis_bootstrap_style' );
 function genesis_bootstrap_style() {
-	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
-	wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap-responsive.min.css' );
+	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.css' );
+	wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap-responsive.css' );
 }
 
 //* Add HTML5 markup structure
@@ -30,3 +30,7 @@ add_theme_support( 'custom-background' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+/** Move primary nav menu */
+remove_action( 'genesis_after_header', 'genesis_do_nav' );
+add_action( 'genesis_before_header', 'genesis_do_nav' );
