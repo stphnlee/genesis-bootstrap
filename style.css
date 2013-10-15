@@ -186,22 +186,22 @@ textarea:focus,
 	color: #fff;
 }
 
-a {
+/*a {
 	border-bottom: 1px dotted #333;
 	color: #333;
 	font-weight: 400;
 	text-decoration: none;
-}
+}*/
 
 a img {
 	margin-bottom: -6px;
 	margin-bottom: -0.6rem;
 }
 
-a:hover {
+/*a:hover {
 	color: #0ebfe9;
 	border-bottom: 1px dotted #0ebfe9;
-}
+}*/
 
 p {
 	margin: 0 0 24px;
@@ -972,10 +972,13 @@ Site Header
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
-	border-bottom: 1px solid #eee;
+	background-color: #1b1b1b;
+	background-image: linear-gradient(to bottom, #222222, #111111);
+	background-repeat: repeat-x;
+	border-color: #252525;
+	/*border-bottom: 1px solid #eee;
 	letter-spacing: 1px;
-	letter-spacing: 0.1rem;
+	letter-spacing: 0.1rem;*/
 	position: fixed;
 	width: 100%;
 	z-index: 999;
@@ -986,37 +989,56 @@ Site Header
 
 .title-area {
 	float: left;
-	padding: 18px 0;
-	padding: 1.8rem 0;
+	/*padding: 18px 0;
+	padding: 1.8rem 0;*/
 	width: 320px;
 }
 
-.header-image .title-area {
+/*.header-image .title-area {
 	padding: 0;
-}
+}*/
 
 .site-title {
-	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	font-size: 2.4rem;
-	line-height: 1;
-	margin: 0;
-	text-transform: uppercase;
+	color: #999999;
+	cursor: auto;
+	display: block;
+	float: left;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 200;
+	font-size: 20px;
+	/*font-size: 2.0rem;*/
+	line-height: 20px;
+	/*line-height: 2.0rem;*/
+	margin-left: -20px;
+	/*margin-left: -2.0rem;*/
+	height:20px;
+	/*padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;*/
+	text-decoration: none;
+	text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+	width: 95px;
 }
 
-.site-title a,
-.site-title a:hover {
+.site-title a {
+	color: #999999;
+}
+.site-title a:hover,
+.site-title a:focus
+ {
 	border: none;
-	color: #333;
+	color: #ffffff;
+	text-decoration:none;
 }
 
-.site-description {
+/*.site-description {
 	font-size: 36px;
 	font-size: 3.6rem;
 	font-weight: 300;
 	line-height: 1.2;
 	margin: 0;
-}
+}*/
 
 /* Full width header, no widgets */
 
