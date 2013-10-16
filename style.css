@@ -991,7 +991,7 @@ Site Header
 	float: left;
 	/*padding: 18px 0;
 	padding: 1.8rem 0;*/
-	width: 320px;
+	width: 95px;
 }
 
 /*.header-image .title-area {
@@ -1009,7 +1009,7 @@ Site Header
 	/*font-size: 2.0rem;*/
 	line-height: 20px;
 	/*line-height: 2.0rem;*/
-	margin-left: -20px;
+	/*margin-left: -20px;*/
 	/*margin-left: -2.0rem;*/
 	height:20px;
 	/*padding-bottom: 10px;
@@ -1069,9 +1069,9 @@ Site Header
 --------------------------------------------- */
 
 .site-header .widget-area {
-	float: right;
-	text-align: right;
-	width: 800px;
+	float: left;
+	/*text-align: right;
+	width: 800px;*/
 }
 
 .site-header .search-form {
@@ -1090,10 +1090,11 @@ Site Navigation
 	color: #fff;
 	font-size: 14px;
 	font-size: 1.4rem;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	line-height: 1.5;
 	width: 100%;
+	display: block;
 }
 
 .genesis-nav-menu .menu-item {
@@ -1106,21 +1107,26 @@ Site Navigation
 	color: #333;
 	display: block;
 	font-size: 14px;
-	font-size: 1.4rem;
+	/*font-size: 1.4rem;
 	padding: 20px;
-	padding: 2rem;
+	padding: 2rem;*/
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
 	position: relative;
 }
 
 .genesis-nav-menu a:hover,
 .genesis-nav-menu .current-menu-item > a,
 .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: #0ebfe9;
+	color: #ffffff;
+	background-color: #111111;
 }
 
-.genesis-nav-menu > .menu-item > a {
+/*.genesis-nav-menu > .menu-item > a {
 	text-transform: uppercase;
-}
+}*/
 
 .genesis-nav-menu .sub-menu {
 	left: -9999px;
@@ -1657,9 +1663,9 @@ Media Queries
 		max-width: 960px;
 	}
 
-	.site-header .widget-area {
+	/*.site-header .widget-area {
 		width: 620px;
-	}
+	}*/
 
 	.content {
 		width: 580px;
@@ -1686,10 +1692,10 @@ Media Queries
 	.footer-widgets-3,
 	.minimum-landing .site-inner,
 	.sidebar,
-	.site-header .widget-area,
+	/*.site-header .widget-area,*/
 	.site-tagline-left,
 	.site-tagline-right,
-	.title-area {
+	/*.title-area*/ {
 		width: 100%;
 	}
 
@@ -1705,7 +1711,7 @@ Media Queries
 	.post-type-archive-portfolio .entry,
 	.site-header .title-area,
 	.site-header .search-form,
-	.site-header .widget-area,
+/*	.site-header .widget-area,*/
 	.site-tagline-left,
 	.site-tagline-right {
 		text-align: center;
