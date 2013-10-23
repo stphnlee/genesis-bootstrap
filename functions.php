@@ -3,20 +3,15 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Genesis Sample Theme' );
-define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
+define( 'CHILD_THEME_NAME', 'Genesis Bootstrap Theme' );
+define( 'CHILD_THEME_URL', 'http://www.avidnetizen.com/' );
 define( 'CHILD_THEME_VERSION', '2.0.1' );
-
-//* Enqueue Lato Google font
-add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
-function genesis_sample_google_fonts() {
-	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
-}
 
 add_action( 'wp_enqueue_scripts', 'genesis_bootstrap_style' );
 function genesis_bootstrap_style() {
-        wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.css' );
-        wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap-responsive.css' );
+        wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css' );
+        wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/css/bootstrap-responsive.css' );
+		wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 'v3.0.0', true );
 }
 
 //* Add HTML5 markup structure
