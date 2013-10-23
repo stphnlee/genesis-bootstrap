@@ -25,3 +25,6 @@ add_theme_support( 'custom-background' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+//* Remove site description
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
