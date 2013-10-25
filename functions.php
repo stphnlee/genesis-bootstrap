@@ -29,6 +29,91 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 //* Remove site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
-//* Move primary nav menu
+//* Add masthead class to header
+add_filter( 'genesis_attr_site-header', 'child_attributes_header' );
+function child_attributes_header( $attributes ) {
+	
+	$attributes['class']  = 'site-header masthead';
+
+	return $attributes;
+
+}
+
+//* Add .muted class to title
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+add_action( 'genesis_site_title', 'child_seo_site_title' );
+function child_seo_site_title() {
+
+	//* Set what goes inside the wrapping tags
+	$inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), get_bloginfo( 'name' ) );
+
+	//* Determine which wrapping tags to use
+	$wrap = 'h3';
+
+	//* Build the title
+	$title  = genesis_html5() ? sprintf( "<{$wrap} %s>", genesis_attr( 'site-title' ) ) : sprintf( '<%s id="title">%s</%s>', $wrap, $inside, $wrap );
+	$title .= genesis_html5() ? "{$inside}</{$wrap}>" : '';
+
+	//* Echo (filtered)
+	echo apply_filters( 'genesis_seo_title', $title, $inside, $wrap );
+
+}
+
+//* Add .text-muted to title
+add_filter( 'genesis_attr_site-title', 'child_attributes_site_title' );
+
+function child_attributes_site_title( $attributes ) {
+
+	$attributes['class'] = 'text-muted';
+
+	return $attributes;
+
+}
+
+//* Add .nav and .nav-justified class to menu-primary
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header', 'genesis_do_nav' );
+add_action( 'genesis_header', 'child_do_nav' );
+function child_do_nav() {
+
+	//* Do nothing if menu not supported
+	if ( ! genesis_nav_menu_supported( 'primary' ) )
+		return;
+
+	//* If menu is assigned to theme location, output
+	if ( has_nav_menu( 'primary' ) ) {
+
+		$class = 'menu genesis-nav-menu menu-primary nav nav-justified';
+		if ( genesis_superfish_enabled() )
+			$class .= ' js-superfish';
+
+		$args = array(
+			'theme_location' => 'primary',
+			'container'      => '',
+			'menu_class'     => $class,
+			'echo'           => 0,
+		);
+
+		$nav = wp_nav_menu( $args );
+
+		//* Do nothing if there is nothing to show
+		if ( ! $nav )
+			return;
+
+		$nav_markup_open = genesis_markup( array(
+			'html5'   => '<nav %s>',
+			'xhtml'   => '<div id="nav">',
+			'context' => 'nav-primary',
+			'echo'    => false,
+		) );
+		$nav_markup_open .= genesis_structural_wrap( 'menu-primary', 'open', 0 );
+
+		$nav_markup_close  = genesis_structural_wrap( 'menu-primary', 'close', 0 );
+		$nav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
+
+		$nav_output = $nav_markup_open . $nav . $nav_markup_close;
+
+		echo apply_filters( 'genesis_do_nav', $nav_output, $nav, $args );
+
+	}
+
+}
