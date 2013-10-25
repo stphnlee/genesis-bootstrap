@@ -192,19 +192,19 @@ add_action( 'genesis_before_loop', 'child_before_loop' );
 function child_before_loop() {
 	$classes = get_body_class();
 	if ( in_array( 'content-sidebar', $classes ) ) {
-		echo '<div class="col-sm-8 pull-left">';
+		echo '<div class="col-sm-8">';
 	}
 	if ( in_array( 'sidebar-content', $classes ) ) {
-		echo '<div class="col-sm-8 pull-right">';
+		echo '<div class="col-sm-8 col-sm-push-4">';
 	}
 	if ( in_array( 'content-sidebar-sidebar', $classes ) ) {
 		echo '<div class="col-sm-6">';
 	}
 	if ( in_array( 'sidebar-sidebar-content', $classes ) ) {
-		echo '<div class="col-md-6 pull-right">';
+		echo '<div class="col-sm-6 col-sm-push-6">';
 	}
 	if ( in_array( 'sidebar-content-sidebar', $classes ) ) {
-		echo '<div class="col-sm-6">';
+		echo '<div class="col-sm-6 col-sm-push-2">';
 	}
 }
 add_action( 'genesis_after_loop', 'child_after_loop' );
@@ -218,15 +218,24 @@ function child_attributes_sidebar_primary( $attributes ) {
 	$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4';
 	
 	if ( in_array( 'sidebar-sidebar-content', $classes ) ) {
-		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4 pull-right';
+		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4 col-sm-pull-4';
+	}
+	if ( in_array( 'sidebar-content', $classes ) ) {
+		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4 col-sm-pull-8';
+	}
+	if ( in_array( 'sidebar-content-sidebar', $classes ) ) {
+		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4 col-sm-push-2';
 	}
 	
 	return $attributes;
 }
 add_filter( 'genesis_attr_sidebar-secondary', 'child_attributes_sidebar_secondary' );
 function child_attributes_sidebar_secondary( $attributes ) {
-	
-	$attributes['class']     = 'sidebar sidebar-secondary widget-area col-sm-2';
+	$classes = get_body_class();
+	$attributes['class']     = 'sidebar sidebar-secondary widget-area col-sm-2 col-sm-pull-10';
+	if ( in_array( 'sidebar-sidebar-content', $classes ) ) {
+		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-2 col-sm-pull-10';
+	}
 	return $attributes;
 
 }

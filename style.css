@@ -24,6 +24,10 @@ img {
 	max-width: 100%;
 }
 
+.form-allowed-tags {
+	display: none;
+}
+
 .footer {
   border-top: 1px solid #eee;
   margin-top: 40px;
