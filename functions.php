@@ -159,6 +159,38 @@ function child_do_nav() {
 
 }
 
+//* Change content class
+add_filter( 'genesis_attr_content', 'child_attributes_content' );
+
+function child_attributes_content( $attributes ) {
+
+	$attributes['role']     = 'main';
+	$attributes['itemprop'] = 'mainContentOfPage';
+
+	//* Blog microdata
+	
+	if ( is_singular( 'post' ) || is_archive() || is_home() || is_page_template( 'page_blog.php' ) ) {
+		$attributes['itemscope'] = 'itemscope';
+		$attributes['itemtype']  = 'http://schema.org/Blog';
+	}
+
+	//* Search results pages
+	if ( is_search() ) {
+		$attributes['itemscope'] = 'itemscope';
+		$attributes['itemtype'] = 'http://schema.org/SearchResultsPage';
+	}
+	
+	/* Dynamic class for content and sidebar based on body class
+	
+	$classes = get_body_class();
+	if ( in_array( 'content-sidebar' || 'sidebar-content', $classes ) ) {
+		$attributes['class'] = 'col-sm-8';
+	} */
+
+	return $attributes;
+
+}
+
 //* Markup footer
 add_filter( 'genesis_attr_site-footer', 'child_attributes_site_footer' );
 /**
