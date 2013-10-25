@@ -67,14 +67,10 @@ genesis_register_sidebar( array(
 	'after_title'   => "</h2>\n",
 ) );
 
-//* Change .wrap to .container
-add_filter( 'genesis_attr_structural-wrap', 'child_attributes_structural_wrap' );
-function child_attributes_structural_wrap( $attributes ) {
-
-	$attributes['class'] = 'container';
-
-	return $attributes;
-
+//* Add .container
+add_action( 'genesis_before', 'child_site_container' );
+function child_site_container() {
+	echo '<div class="container">';
 }
 
 //* Remove site description
@@ -192,10 +188,9 @@ function child_before_content() {
 
 //* Dynamically change class of content
 
-add_filter( 'genesis_attr_content', 'child_attributes_content' );
-function child_before_content() {
-	echo '<!-- -->';
-	/*$classes = get_body_class();
+add_action( 'genesis_before_loop', 'child_before_loop' );
+function child_before_loop() {
+	$classes = get_body_class();
 	if ( in_array( 'content-sidebar', $classes ) ) {
 		echo '<div class="col-sm-8 pull-left">';
 	}
@@ -210,9 +205,12 @@ function child_before_content() {
 	}
 	if ( in_array( 'sidebar-content-sidebar', $classes ) ) {
 		echo '<div class="col-sm-6">';
-	}*/
+	}
 }
-
+add_action( 'genesis_after_loop', 'child_after_loop' );
+function child_after_loop() {
+	echo '</div>';
+}
 //* Add col class to sidebars
 add_filter( 'genesis_attr_sidebar-primary', 'child_attributes_sidebar_primary' );
 function child_attributes_sidebar_primary( $attributes ) {

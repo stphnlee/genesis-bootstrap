@@ -20,6 +20,10 @@ body {
   word-wrap:break-word;
 }
 
+img {
+	max-width: 100%;
+}
+
 .footer {
   border-top: 1px solid #eee;
   margin-top: 40px;
