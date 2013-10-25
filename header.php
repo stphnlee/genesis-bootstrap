@@ -18,7 +18,7 @@ do_action( 'genesis_before' );
 genesis_markup( array(
 	'html5'   => '<div %s>',
 	'xhtml'   => '<div id="wrap">',
-	'context' => 'navbar-wrapper',
+	'context' => 'container',
 ) );
 
 do_action( 'genesis_before_header' );
