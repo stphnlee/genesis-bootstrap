@@ -24,6 +24,7 @@ body {
   margin-top: 40px;
   padding-top: 40px;
   padding-bottom: 40px;
+  text-align: center;
 }
 
 /* Site title */
@@ -38,13 +39,19 @@ body {
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
+section.jumbotron,
+div.jumbotron {
   text-align: center;
   background-color: transparent;
 }
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
+}
+
+section.widget.jumbotron {
+	padding: 0;
+	margin: auto;
 }
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */

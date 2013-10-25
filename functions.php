@@ -26,6 +26,47 @@ add_theme_support( 'custom-background' );
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
+//* Register home page widgets
+/** Register widget areas */
+genesis_register_sidebar( array(
+	'id'			=> 'jumbotron',
+	'name'			=> __( 'Jumbotron', 'genesis-bootstrap' ),
+	'description'	=> __( 'This is the jumbotron section.', 'genesis-bootstrap' ),
+	'before_widget' => genesis_markup( array(
+		'html5' => '<div class="container"><section id="%1$s" class="widget %2$s jumbotron"><div class="widget-wrap jumbotron">',
+		'xhtml' => '<div class="container"><div id="%1$s" class="widget %2$s jumbotron"><div class="widget-wrap jumbotron">',
+		'echo'  => false,
+	) ),
+	'after_widget'  => genesis_markup( array(
+		'html5' => '</div></section></div>' . "\n",
+		'xhtml' => '</div></div></div>' . "\n",
+		'echo'  => false
+	) ),
+	'before_title'  => '<h1 class="widget-title widgettitle">',
+	'after_title'   => "</h1>\n",
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-middle-1',
+	'name'			=> __( 'Home Middle #1', 'genesis-bootstrap' ),
+	'description'	=> __( 'This is the first column of the home middle section.', 'genesis-bootstrap' ),
+	'before_title'  => '<h2 class="widget-title widgettitle">',
+	'after_title'   => "</h2>\n",
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-middle-2',
+	'name'			=> __( 'Home Middle #2', 'genesis-bootstrap' ),
+	'description'	=> __( 'This is the second column of the home middle section.', 'genesis-bootstrap' ),
+	'before_title'  => '<h2 class="widget-title widgettitle">',
+	'after_title'   => "</h2>\n",
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-middle-3',
+	'name'			=> __( 'Home Middle #3', 'genesis-bootstrap' ),
+	'description'	=> __( 'This is the third column of the home middle section.', 'genesis-bootstrap' ),
+	'before_title'  => '<h2 class="widget-title widgettitle">',
+	'after_title'   => "</h2>\n",
+) );
+
 //* Remove site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -115,5 +156,24 @@ function child_do_nav() {
 		echo apply_filters( 'genesis_do_nav', $nav_output, $nav, $args );
 
 	}
+
+}
+
+//* Markup footer
+add_filter( 'genesis_attr_site-footer', 'child_attributes_site_footer' );
+/**
+ * Add attributes for site footer element.
+ *
+ * @since 2.0.0
+ *
+ * @param array $attributes Existing attributes.
+ *
+ * @return array Amended attributes.
+ */
+function child_attributes_site_footer( $attributes ) {
+
+	$attributes['class']      = 'site-footer footer';
+
+	return $attributes;
 
 }
