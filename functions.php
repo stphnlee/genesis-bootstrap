@@ -67,6 +67,16 @@ genesis_register_sidebar( array(
 	'after_title'   => "</h2>\n",
 ) );
 
+//* Change .wrap to .container
+add_filter( 'genesis_attr_structural-wrap', 'child_attributes_structural_wrap' );
+function child_attributes_structural_wrap( $attributes ) {
+
+	$attributes['class'] = 'container';
+
+	return $attributes;
+
+}
+
 //* Remove site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -159,49 +169,81 @@ function child_do_nav() {
 
 }
 
-//* Change content class
+//* Move breadcrumbs
+remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
+add_action( 'genesis_after_header', 'genesis_do_breadcrumbs' );
+
+//* Add row to content-sidebar-wrap
+add_action( 'genesis_before_content_sidebar_wrap', 'child_before_content_sidebar_wrap');
+function child_before_content_sidebar_wrap() {
+	echo '<div class="row container">';
+}
+//* add_action( 'genesis_after_content_sidebar_wrap', 'child_after_content_sidebar_wrap' );
+function child_after_content_sidebar_wrap() {
+	echo '</div>';
+}
+/* Special class rule
+
+add_action( 'genesis_before_content', 'child_before_content' );
+function child_before_content() {
+	echo '<!-- -->';
+}*/
+
+
+//* Dynamically change class of content
+
 add_filter( 'genesis_attr_content', 'child_attributes_content' );
-
-function child_attributes_content( $attributes ) {
-
-	$attributes['role']     = 'main';
-	$attributes['itemprop'] = 'mainContentOfPage';
-
-	//* Blog microdata
-	
-	if ( is_singular( 'post' ) || is_archive() || is_home() || is_page_template( 'page_blog.php' ) ) {
-		$attributes['itemscope'] = 'itemscope';
-		$attributes['itemtype']  = 'http://schema.org/Blog';
+function child_before_content() {
+	echo '<!-- -->';
+	/*$classes = get_body_class();
+	if ( in_array( 'content-sidebar', $classes ) ) {
+		echo '<div class="col-sm-8 pull-left">';
 	}
-
-	//* Search results pages
-	if ( is_search() ) {
-		$attributes['itemscope'] = 'itemscope';
-		$attributes['itemtype'] = 'http://schema.org/SearchResultsPage';
+	if ( in_array( 'sidebar-content', $classes ) ) {
+		echo '<div class="col-sm-8 pull-right">';
 	}
-	
-	/* Dynamic class for content and sidebar based on body class
-	
+	if ( in_array( 'content-sidebar-sidebar', $classes ) ) {
+		echo '<div class="col-sm-6">';
+	}
+	if ( in_array( 'sidebar-sidebar-content', $classes ) ) {
+		echo '<div class="col-md-6 pull-right">';
+	}
+	if ( in_array( 'sidebar-content-sidebar', $classes ) ) {
+		echo '<div class="col-sm-6">';
+	}*/
+}
+
+//* Add col class to sidebars
+add_filter( 'genesis_attr_sidebar-primary', 'child_attributes_sidebar_primary' );
+function child_attributes_sidebar_primary( $attributes ) {
 	$classes = get_body_class();
-	if ( in_array( 'content-sidebar' || 'sidebar-content', $classes ) ) {
-		$attributes['class'] = 'col-sm-8';
-	} */
-
+	$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4';
+	
+	if ( in_array( 'sidebar-sidebar-content', $classes ) ) {
+		$attributes['class']     = 'sidebar sidebar-primary widget-area col-sm-4 pull-right';
+	}
+	
+	return $attributes;
+}
+add_filter( 'genesis_attr_sidebar-secondary', 'child_attributes_sidebar_secondary' );
+function child_attributes_sidebar_secondary( $attributes ) {
+	
+	$attributes['class']     = 'sidebar sidebar-secondary widget-area col-sm-2';
 	return $attributes;
 
 }
-
+//* Close row before footer
+add_action( 'genesis_before_footer', 'child_close_site_inner' );
+function child_close_site_inner() {
+	echo '</div>';
+}
+//* Close row before footer
+add_action( 'genesis_after_footer', 'child_close_container' );
+function child_close_container() {
+	echo '</div>';
+}
 //* Markup footer
 add_filter( 'genesis_attr_site-footer', 'child_attributes_site_footer' );
-/**
- * Add attributes for site footer element.
- *
- * @since 2.0.0
- *
- * @param array $attributes Existing attributes.
- *
- * @return array Amended attributes.
- */
 function child_attributes_site_footer( $attributes ) {
 
 	$attributes['class']      = 'site-footer footer';

@@ -17,6 +17,7 @@
 
 body {
   padding-top: 20px;
+  word-wrap:break-word;
 }
 
 .footer {
