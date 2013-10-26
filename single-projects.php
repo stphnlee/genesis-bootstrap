@@ -15,7 +15,7 @@ function single_special_loop() {
 			<?php the_field( 'description' ); ?>
 			<div class="project-footer"><a href="<?php /*echo the_field( 'project_url' ); */ ?>http://www.avidnetizen.com/contact"><button class="btn btn-default"><!--View-->Contact Avid Netizen Today <?php /*echo the_field( 'title' );*/ ?> &rarr;</button></a></div>
 		</div>
-		<div class="col-sm-8"><img src="<?php the_field( 'screenshot' ); ?>" /></div>
+		<div class="col-sm-8"><img class="img-responsive" src="<?php the_field( 'screenshot' ); ?>" /></div>
 	
 
 

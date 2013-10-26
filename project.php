@@ -21,7 +21,7 @@ function special_loop() {
             <div class="col-sm-5 thumb">
 				<?php//use the genesis_get_custom_field template tag to display each custom field value ?>
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?php the_field( 'thumbnail' ); ?>" />
+					<img class="img-responsive" src="<?php the_field( 'thumbnail' ); ?>" />
 				</a>
 			</div>
 			<div class="col-sm-7">			

@@ -21,7 +21,7 @@ body {
 }
 
 img {
-	width: 100%;
+	max-width: 100%;
 }
 
 .form-allowed-tags {
@@ -211,6 +211,105 @@ span.icon-bar {
 	text-align: center;
 	padding: 15px;
 }
-.entry-comments-link:before {
+.entry-comments-link:before,
+.entry-tags:before {
 	content: '  |  ';
+}
+
+/*
+Common Classes
+---------------------------------------------------------------------------------------------------- */
+
+/* WordPress
+--------------------------------------------- */
+
+.avatar {
+	float: left;
+}
+
+.alignleft .avatar {
+	margin-right: 24px;
+	margin-right: 2.4rem;
+}
+
+.alignright .avatar {
+	margin-left: 24px;
+	margin-left: 2.4rem;
+}
+
+.search-form input[type="submit"] {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.sticky {
+}
+
+img.centered,
+.aligncenter {
+	display: block;
+	margin: 0 auto 24px;
+	margin: 0 auto 2.4rem;
+}
+
+img.alignnone {
+	margin-bottom: 12px;
+	margin-bottom: 1.2rem;
+}
+
+.alignleft {
+	float: left;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	text-align: right;
+}
+
+img.alignleft,
+.wp-caption.alignleft {
+	margin: 0 24px 24px 0;
+	margin: 0 2.4rem 2.4rem 0;
+}
+
+img.alignright,
+.wp-caption.alignright {
+	margin: 0 0 24px 24px;
+	margin: 0 0 2.4rem 2.4rem;
+}
+
+.wp-caption-text {
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.gallery-caption {
+}
+
+.widget_calendar table {
+	width: 100%;
+}
+
+.widget_calendar td,
+.widget_calendar th {
+	text-align: center;
+}
+.entry-footer {
+	padding: 8px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	background-color: #f5f5f5;
+	border-radius: 4px;
+	font-style: italic;
+}
+.entry-footer a {
+	font-style: normal;
 }
