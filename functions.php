@@ -10,7 +10,6 @@ define( 'CHILD_THEME_VERSION', '2.0.1' );
 add_action( 'wp_enqueue_scripts', 'genesis_bootstrap_style' );
 function genesis_bootstrap_style() {
         wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css' );
-        wp_enqueue_style( 'bootstrap-responsive', get_stylesheet_directory_uri() . '/css/bootstrap-responsive.css' );
 		wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 'v3.0.0', true );
 }
 
