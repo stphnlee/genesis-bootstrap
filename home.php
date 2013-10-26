@@ -7,6 +7,7 @@ function genesis_bootstrap_home_genesis_meta() {
 		remove_action( 'genesis_loop', 'genesis_do_loop' );
 		add_action( 'genesis_loop', 'genesis_bootstrap_home_loop_helper' );
 		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+		remove_action( 'genesis_before_content_sidebar_wrap', 'child_do_subnav' );
 
 	}
 }
@@ -39,7 +40,6 @@ function genesis_bootstrap_home_loop_helper() {
 	}
 	
 	echo '</div><!-- end .home-middle -->';
-	echo '</div><!-- end middle .row -->';
 }
 
 genesis();

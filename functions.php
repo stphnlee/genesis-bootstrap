@@ -78,11 +78,11 @@ unregister_sidebar( 'header-right' );
 //* Remove site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
-//* Add masthead class to header
+//* Add .masthead .row and .container to header
 add_filter( 'genesis_attr_site-header', 'child_attributes_header' );
 function child_attributes_header( $attributes ) {
 	
-	$attributes['class']  = 'site-header masthead';
+	$attributes['class']  = 'site-header masthead row container';
 
 	return $attributes;
 
@@ -177,8 +177,54 @@ function child_do_nav() {
 
 }
 
-//* Unregister secondary menu
-add_theme_support( 'genesis-menus', array( 'primary' => __( 'Primary Navigation Menu', 'genesis' ) ) );
+/* Unregister secondary menu
+add_theme_support( 'genesis-menus', array( 'primary' => __( 'Primary Navigation Menu', 'genesis' ) ) );*/
+
+//* Move secondary menu
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_before_content_sidebar_wrap', 'child_do_subnav' );
+function child_do_subnav() {
+	//* Do nothing if menu not supported
+	if ( ! genesis_nav_menu_supported( 'secondary' ) )
+		return;
+
+	//* If menu is assigned to theme location, output
+	if ( has_nav_menu( 'secondary' ) ) {
+
+		$class = 'menu genesis-nav-menu menu-secondary nav nav-pills';
+		if ( genesis_superfish_enabled() )
+			$class .= ' js-superfish';
+
+		$args = array(
+			'theme_location' => 'secondary',
+			'container'      => '',
+			'menu_class'     => $class,
+			'echo'           => 0,
+		);
+
+		$subnav = wp_nav_menu( $args );
+
+		//* Do nothing if there is nothing to show
+		if ( ! $subnav )
+			return;
+
+		$subnav_markup_open = genesis_markup( array(
+			'html5'   => '<nav %s>',
+			'xhtml'   => '<div id="subnav">',
+			'context' => 'nav-secondary',
+			'echo'    => false,
+		) );
+		$subnav_markup_open .= genesis_structural_wrap( 'menu-secondary', 'open', 0 );
+
+		$subnav_markup_close  = genesis_structural_wrap( 'menu-secondary', 'close', 0 );
+		$subnav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
+
+		$subnav_output = $subnav_markup_open . $subnav . $subnav_markup_close;
+
+		echo apply_filters( 'genesis_do_subnav', $subnav_output, $subnav, $args );
+
+	}
+}
 
 //* Move breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
