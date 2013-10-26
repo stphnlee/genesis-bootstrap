@@ -117,6 +117,16 @@ function child_attributes_site_title( $attributes ) {
 
 }
 
+//* Add collapse button
+add_action( 'genesis_header', 'child_collapse_button' );
+function child_collapse_button() {
+	echo '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>';
+}
+
 //* Add .nav and .nav-justified class to menu-primary
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header', 'child_do_nav' );
@@ -147,15 +157,15 @@ function child_do_nav() {
 			return;
 
 		$nav_markup_open = genesis_markup( array(
-			'html5'   => '<nav %s>',
-			'xhtml'   => '<div id="nav">',
+			'html5'   => '<div id="navbar-collapse" class="collapse navbar-collapse"><nav %s>',
+			'xhtml'   => '<div class="collapse navbar-collapse" id="nav">',
 			'context' => 'nav-primary',
 			'echo'    => false,
 		) );
 		$nav_markup_open .= genesis_structural_wrap( 'menu-primary', 'open', 0 );
 
 		$nav_markup_close  = genesis_structural_wrap( 'menu-primary', 'close', 0 );
-		$nav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
+		$nav_markup_close .= genesis_html5() ? '</nav></div>' : '</div>';
 
 		$nav_output = $nav_markup_open . $nav . $nav_markup_close;
 

@@ -4,9 +4,15 @@ Template Name: Project Page
 */
  
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+
+add_action( 'genesis_before_loop', 'child_project_page_title' );
+function child_project_page_title() {
+	echo '<h1 class="project-page-title">Projects</h1>';
+}
+
 remove_action('genesis_loop', 'genesis_do_loop');//remove genesis loop
 add_action('genesis_loop', 'special_loop');//add the special loop
- 
+
 function special_loop() {
  
     $loop = new WP_Query( array( 'post_type' => 'projects', 'posts_per_page' => 5 ) );

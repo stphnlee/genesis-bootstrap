@@ -104,7 +104,7 @@ section.widget.jumbotron {
 
 .nav-justified li.current_page_item > a { 
 	-webkit-box-shadow: rgba(0, 0, 0, 0.14902) 0px 3px 7px 0px inset;
-	background-color: rgb(221, 221, 221);
+	background-color: #ddd;
 	background-image: none;
 	background-repeat: repeat-x;
 	border-bottom-color: rgb(213, 213, 213);
@@ -151,10 +151,16 @@ section.widget.jumbotron {
   }
 }
 
+div#navbar-collapse.collapse.navbar-collapse {
+	padding: 0;
+}
+
+/* Sidebar primary */
 .sidebar-primary {
 	margin-top: 25px;
 }
 
+/* Custom post type project */
 .project {
 	padding: 25px 0;
 	border-bottom: 1px solid #eee;
@@ -175,11 +181,35 @@ section.widget.jumbotron {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
-  .masthead,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
+	.masthead,
+	.marketing,
+	.footer {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.project-page-title,
+	.type-page .entry-title {
+		display: none;	  
+  	}
+	.entry-header {
+		margin-top: 25px;
+	}
+  
 }
-
+@media screen and (max-width: 768px) {
+	.title-area {
+		float: left;	
+	}
+	.site-inner {
+		padding-top:50px;
+	}
+	
+	
+}
+button.navbar-toggle {
+	background-color: #ddd;
+	margin-top:20px;	
+}
+span.icon-bar {
+	background-color:white;
+}
