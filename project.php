@@ -34,9 +34,9 @@ function special_loop() {
             	<p class="description">
 					<?php the_field( 'description') ; ?>
 				</p>
-				<p style="text-align:center;">
+				<p class="project-footer">
 					<a href="<?php the_permalink(); ?>">
-						<button class="btn">Continue Reading &rarr;</button>
+						<button class="btn btn-default">Continue Reading &rarr;</button>
 					</a>
 				</p>
             </div><!--end #specials -->

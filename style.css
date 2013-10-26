@@ -207,3 +207,7 @@ button.navbar-toggle {
 span.icon-bar {
 	background-color:white;
 }
+.project-footer {
+	text-align: center;
+	padding: 15px;
+}
