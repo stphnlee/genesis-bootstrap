@@ -187,13 +187,7 @@ div#navbar-collapse.collapse.navbar-collapse {
 		padding-left: 0;
 		padding-right: 0;
 	}
-	.project-page-title,
-	.type-page .entry-title {
-		display: none;	  
-  	}
-	.entry-header {
-		margin-top: 25px;
-	}
+	
   
 }
 @media screen and (max-width: 768px) {
