@@ -3,9 +3,9 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Genesis Bootstrap Theme' );
+define( 'CHILD_THEME_NAME', 'Bootstrap Justified' );
 define( 'CHILD_THEME_URL', 'http://www.avidnetizen.com/' );
-define( 'CHILD_THEME_VERSION', '2.0.1' );
+define( 'CHILD_THEME_VERSION', '0.0.4' );
 
 add_action( 'wp_enqueue_scripts', 'genesis_bootstrap_style' );
 function genesis_bootstrap_style() {
@@ -333,9 +333,9 @@ remove_filter( 'get_search_form', 'genesis_search_form' );
 
 //* Modify footer output
 add_filter( 'genesis_footer_output', 'child_output_filter' );
-function child_output_filter( $backtotop_text, $creds_text ) {
+function child_output_filter( $creds_text ) {
 	$backtotop_text = '';
-	$creds_text     = '<p>Copyright © ' . date('Y') . ' · <a href="http://www.avidnetizen.com/" title="Genesis Bootstrap Theme">Genesis Bootstrap Theme</a> on <a href="http://www.avidnetizen.com/go/genesis" title="Genesis Framework">Genesis Framework</a> · <a href="http://wordpress.org/" title="WordPress">WordPress</a></p>';
+	$creds_text     = '<p>Copyright © ' . date('Y') . ' · <a href="http://www.avidnetizen.com/" title="Bootstrap Justified Theme">Genesis + Bootstrap</a> on <a href="http://www.avidnetizen.com/go/genesis" title="Genesis Framework">Genesis Framework</a> · <a href="http://wordpress.org/" title="WordPress">WordPress</a></p>';
 		return $creds_text;
 
 	echo apply_filters( 'genesis_footer_output', $output, $backtotop_text, $creds_text );
