@@ -72,6 +72,9 @@ function child_site_container() {
 	echo '<div class="container">';
 }
 
+//* Remove header-right sidebar
+unregister_sidebar( 'header-right' );
+
 //* Remove site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -173,6 +176,9 @@ function child_do_nav() {
 	}
 
 }
+
+//* Unregister secondary menu
+add_theme_support( 'genesis-menus', array( 'primary' => __( 'Primary Navigation Menu', 'genesis' ) ) );
 
 //* Move breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
