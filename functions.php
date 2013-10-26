@@ -276,3 +276,6 @@ function child_attributes_author_box( $attributes ) {
 	return $attributes;
 
 }
+
+//* Remove Genesis search form
+remove_filter( 'get_search_form', 'genesis_search_form' );
