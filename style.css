@@ -21,7 +21,7 @@ body {
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
 }
 
 .form-allowed-tags {
@@ -150,6 +150,27 @@ section.widget.jumbotron {
     border-right: 0;
   }
 }
+
+.sidebar-primary {
+	margin-top: 25px;
+}
+
+.project {
+	padding: 25px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.project:last-child {
+	border: none;
+}
+
+/*.project:nth-child(odd) .thumb {
+	float: right;
+}
+
+.project:nth-child(even) .thumb {
+	float: left;
+	}*/
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
