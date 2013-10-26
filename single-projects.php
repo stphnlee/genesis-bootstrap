@@ -11,11 +11,11 @@ function single_special_loop() {
 
 		<h3><?php the_title(); ?></h3>
 		<div class="row single-project">
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<?php the_field( 'description' ); ?>
-			<div class="offset6"><a href="<?php /*echo the_field( 'project_url' ); */ ?>http://www.avidnetizen.com/contact"><button class="btn"><!--View-->Contact Avid Netizen Today <?php /*echo the_field( 'title' );*/ ?> &rarr;</button></a></div>
+			<div class="project-footer"><a href="<?php /*echo the_field( 'project_url' ); */ ?>http://www.avidnetizen.com/contact"><button class="btn btn-default"><!--View-->Contact Avid Netizen Today <?php /*echo the_field( 'title' );*/ ?> &rarr;</button></a></div>
 		</div>
-		<div class="col-sm-6"><img src="<?php the_field( 'screenshot' ); ?>" /></div>
+		<div class="col-sm-8"><img src="<?php the_field( 'screenshot' ); ?>" /></div>
 	
 
 
