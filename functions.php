@@ -256,23 +256,3 @@ function child_attributes_site_footer( $attributes ) {
 	$attributes['class']      = 'site-footer footer';
 	return $attributes;
 }
-
-/** Add Custom Post Types 
- 
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
-register_post_type( 'clients',
-array(
-'labels' => array(
-'name' => __( 'Clients' ),
-'singular_name' => __( 'Client' )
-),
-'public' => true,
-'has_archive' => true,
-'rewrite' => array('slug' => 'clients'),
-)
-);
-}
-
-//* Add custom post type
-add_post_type_support( 'clients', 'genesis-layouts' );*/
