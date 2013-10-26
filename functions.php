@@ -266,3 +266,13 @@ function child_attributes_site_footer( $attributes ) {
 	$attributes['class']      = 'site-footer footer';
 	return $attributes;
 }
+
+//* Put author box in a well
+add_filter( 'genesis_attr_author-box', 'child_attributes_author_box' );
+function child_attributes_author_box( $attributes ) {
+
+	$attributes['class']  = 'author-box well';
+
+	return $attributes;
+
+}

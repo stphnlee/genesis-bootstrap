@@ -20,12 +20,35 @@ body {
   word-wrap:break-word;
 }
 
+p {
+	font-size: 16px;
+}
+
 img {
 	max-width: 100%;
 }
 
 .form-allowed-tags {
 	display: none;
+}
+
+p.entry-meta {
+	font-size: 14px;
+	color: #999;
+}
+.entry-footer {
+	padding: 8px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	margin-bottom: 14px;
+	border-top: 1px solid #e3e3e3;
+	font-style: italic;
+}
+.entry-footer p {
+	font-size:13px;
+}
+.entry-footer a {
+	font-style: normal;
 }
 
 .footer {
@@ -216,6 +239,14 @@ span.icon-bar {
 	content: '  |  ';
 }
 
+.comment-list {
+	list-style: none;
+}
+.entry-comments {
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	padding: 0 15px;
+}
 /*
 Common Classes
 ---------------------------------------------------------------------------------------------------- */
@@ -225,6 +256,7 @@ Common Classes
 
 .avatar {
 	float: left;
+	margin-right: 10px;
 }
 
 .alignleft .avatar {
@@ -235,16 +267,6 @@ Common Classes
 .alignright .avatar {
 	margin-left: 24px;
 	margin-left: 2.4rem;
-}
-
-.search-form input[type="submit"] {
-	border: 0;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	position: absolute;
-	width: 1px;
 }
 
 .sticky {
@@ -302,14 +324,182 @@ img.alignright,
 .widget_calendar th {
 	text-align: center;
 }
-.entry-footer {
-	padding: 8px 15px;
-	margin-bottom: 20px;
-	list-style: none;
-	background-color: #f5f5f5;
-	border-radius: 4px;
-	font-style: italic;
+
+/* Genesis
+--------------------------------------------- */
+.archive-description,
+.author-box {
+	background-color: #fff;
+	margin-bottom: 40px;
+	margin-bottom: 4rem;
 }
-.entry-footer a {
-	font-style: normal;
+
+.archive-description {
+	padding: 40px 40px 24px;
+	padding: 4rem 4rem 2.4rem;
+}
+
+.author-box {
+	padding: 40px;
+	padding: 4rem;
+}
+
+.author-box-title {
+	color: #333;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	margin-bottom: 4px;
+	margin-bottom: 0.4rem;
+	margin-top: 0;
+}
+
+.author-box a {
+	border-bottom: 1px solid #ddd;
+}
+
+.author-box p {
+	margin-bottom: 0;
+}
+
+.author-box .avatar {
+	margin-right: 10px;
+}
+
+/* Titles
+--------------------------------------------- */
+
+.entry-title {
+	font-size: 36px;
+	font-size: 3.6rem;
+	line-height: 1;
+}
+
+.sidebar .widget-title a {
+	color: #333;
+}
+
+.widget-title {
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+	text-transform: uppercase;
+}
+
+.sidebar .widget-title a {
+	border: none;
+}
+
+.archive-title {
+	font-size: 20px;
+	font-size: 2rem;
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+}
+
+
+/*
+Widgets
+---------------------------------------------------------------------------------------------------- */
+
+/* Featured Content
+--------------------------------------------- */
+
+.featured-content .entry {
+	border-bottom: 2px solid #f5f5f5;
+	margin-bottom: 20px;
+	margin-bottom: 2rem;
+	padding: 0 0 24px;
+	padding: 0 0 2.4rem;
+}
+
+.featured-content .entry-title {
+	border: none;
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.2;
+}
+
+.featured-content .entry-title a {
+	border: none;
+}
+
+
+/*
+Plugins
+---------------------------------------------------------------------------------------------------- */
+
+/* Genesis eNews Extended
+--------------------------------------------- */
+
+.enews-widget {
+	color: #999;
+}
+
+.enews-widget .widget-title {
+	color: #fff;
+}
+
+.enews-widget input {
+	margin-bottom: 16px;
+	margin-bottom: 1.6rem;
+}
+
+.enews-widget input:focus {
+	border: 1px solid #ddd;
+}
+
+.enews-widget input[type="submit"] {
+	background-color: #f15123;
+	color: #fff;
+	margin: 0;
+	width: 100%;
+}
+
+.enews-widget input:hover[type="submit"] {
+	background-color: #fff;
+	color: #333;
+}
+
+/* Genesis Latest Tweets
+--------------------------------------------- */
+
+.latest-tweets ul li {
+	margin-bottom: 16px;
+	margin-bottom: 1.6rem;
+}
+
+/* Gravity Forms
+--------------------------------------------- */
+
+div.gform_wrapper input[type="email"],
+div.gform_wrapper input[type="text"],
+div.gform_wrapper textarea,
+div.gform_wrapper .ginput_complex label {
+	font-size: 16px;
+	font-size: 1.6rem;
+	padding: 16px;
+	padding: 1.6rem;
+}
+
+div.gform_wrapper .ginput_complex label {
+	padding: 0;
+}
+
+div.gform_wrapper li,
+div.gform_wrapper form li {
+	margin: 16px 0 0;
+	margin: 1.6rem 0 0;
+}
+
+div.gform_wrapper .gform_footer input[type="submit"] {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+/* Jetpack
+--------------------------------------------- */
+
+img#wpstats {
+	display: none;
 }
