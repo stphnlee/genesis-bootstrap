@@ -278,3 +278,13 @@ function child_attributes_author_box( $attributes ) {
 
 //* Remove Genesis search form
 remove_filter( 'get_search_form', 'genesis_search_form' );
+
+//* Modify footer output
+add_filter( 'genesis_footer_output', 'child_output_filter' );
+function child_output_filter( $backtotop_text, $creds_text ) {
+	$backtotop_text = '';
+	$creds_text     = '<p>Copyright © ' . date('Y') . ' · <a href="http://www.avidnetizen.com/" title="Genesis Bootstrap Theme">Genesis Bootstrap Theme</a> on <a href="http://www.avidnetizen.com/go/genesis" title="Genesis Framework">Genesis Framework</a> · <a href="http://wordpress.org/" title="WordPress">WordPress</a></p>';
+		return $creds_text;
+
+	echo apply_filters( 'genesis_footer_output', $output, $backtotop_text, $creds_text );
+}
