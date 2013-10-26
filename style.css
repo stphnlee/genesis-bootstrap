@@ -531,3 +531,33 @@ div.gform_wrapper .gform_footer input[type="submit"] {
 img#wpstats {
 	display: none;
 }
+
+input.pushbutton-wide,
+input#submit {
+	background-color: #fff;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	color: #333;
+	display: inline-block;
+	font-size: 14px;
+	height: 34px;
+	letter-spacing: normal;
+	line-height: 20px;
+	margin: 0px;
+	padding: 6px 12px;
+	text-align: center;
+	text-indent: 0px;
+	text-shadow: none;
+	text-transform: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	word-spacing: 0px;
+}
+
+input.pushbutton-wide:hover,
+input#submit:hover {
+	color: #333333;
+	  background-color: #ebebeb;
+	  border-color: #adadad;
+}
