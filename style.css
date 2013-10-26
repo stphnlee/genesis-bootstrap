@@ -211,3 +211,6 @@ span.icon-bar {
 	text-align: center;
 	padding: 15px;
 }
+.entry-comments-link:before {
+	content: '  |  ';
+}
